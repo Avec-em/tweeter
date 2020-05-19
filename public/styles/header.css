@@ -1,0 +1,12 @@
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  background-color: #DAA520;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  height: 400px;
+  font-size: 1.5rem;
+  justify-content: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
