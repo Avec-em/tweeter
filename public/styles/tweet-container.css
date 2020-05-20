@@ -1,0 +1,48 @@
+.tweet-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.tweet{
+  width: 800px;
+  border: 3px solid grey;
+  padding: 30px 10px 10px 10px;
+}
+
+.tweet:hover {
+  box-shadow: 5px 10px 8px #a6cb8b;
+}
+
+.tweet header {
+  display: flex;  
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tweet-body{
+  border-bottom: 3px solid grey;
+  padding: 30px 10px 10px 10px;
+}
+
+.tweet div {
+  display: flex;
+  justify-content: flex-start;
+} 
+
+.tweet img{
+  height: 50px
+}
+
+.user-name{
+  display:flex;
+  padding: 10px;
+}
+
+.tweet footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px 0px 0px 0px;
+  font-size: small;
+};
