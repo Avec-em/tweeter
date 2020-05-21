@@ -14,6 +14,7 @@ html {
   padding: 24px 24px;
   align-items: center;
   background-color: #4056A1;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   color: white;
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
