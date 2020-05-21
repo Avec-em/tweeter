@@ -1,8 +1,7 @@
 
 $(document).ready(function() {
-
-  renderTweets(tweetData);
-
+  loadTweets();
   $('form').submit(handleFormSubmission)
+
 
 });

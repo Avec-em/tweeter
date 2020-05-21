@@ -1,51 +1,15 @@
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  },
-  {
-    "user": {
-      "name": "Emily",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@em" },
-    "content": {
-      "text": "I'm not superstitious, but I am a little stitious"
-    },
-    "created_at": 1461113959088
-  }
-]
-
-
-const renderTweets = function(tweet) {
+//Function to render tweets from the createTweetElement & prepend them to tweet-container
+const renderTweets = function(tweets) {
   // loops through tweets
-  for (const tweet of tweetData) {
+  for (const tweet of tweets) {
     // calls createTweetElement for each tweet
     const currentTweet = createTweetElement(tweet)
     // takes return value and appends it to the tweets container
     $('.tweet-container').prepend(currentTweet)
-
   }
 };
 
-
+//Function to create the Element that hosts the tweet, and to apply
 const createTweetElement = function(tweet) {
   let $tweet =         
   `<article class="tweet">
@@ -63,17 +27,33 @@ const createTweetElement = function(tweet) {
       <p>button test</p>
     </footer>
     </article>`
-    return $tweet;
-    };
+  return $tweet;
+};
 
-    renderTweets(tweetData)
 
 const handleFormSubmission = function (event) {
   event.preventDefault();
+  let tweetBody =  ($(this).children('textarea').val())
+  if (!tweetBody) {
+    alert('What are you humming about?!')
+    return;
+  } else if (tweetBody.length > 140) {
+    alert('You are humming about too much!')
+    return;
+  }
   const data = $(this).serialize();
-  $.post('/tweets', data, function() {
-    console.log(data)
+  $.post('/tweets', data)
+  .then(function (response) {
+    console.log('response AFTER POST:>> ', response);
+    loadTweets()
   })
 };
+
+const loadTweets = () => $.get('/tweets', JSON)
+.done(function (response) {
+  renderTweets(response);
+})
+
+
 
 //pass it to create tweet & console log data and looks how it is supposed to once it is good to go, then render and prepend.
