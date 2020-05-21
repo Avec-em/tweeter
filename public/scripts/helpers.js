@@ -25,7 +25,7 @@ const createTweetElement = function(tweet) {
     </div>
     <footer>
       <p>${(tweet.created_at)}</p>
-      <p>button test</p>
+      <span class="material-icons"> favorite_border outlined_flag repeat</span>
     </footer>
     </article>`
   return $tweet;
@@ -48,6 +48,7 @@ const handleFormSubmission = function (event) {
   const data = $(this).serialize();
   $.post('/tweets', data)
   .then(function (response) {
+    $('form')[0].reset();
     loadTweets()
   })
 };
