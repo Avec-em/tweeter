@@ -37,7 +37,6 @@
   background: transparent;
   border-bottom: 3px solid var(--tweet-font-color);
   width: 800px;
-  flex-wrap: wrap;
 }
 
 .tweetLabel {

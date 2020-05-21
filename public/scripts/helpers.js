@@ -24,7 +24,7 @@ const createTweetElement = function(tweet) {
       <p>${escape(tweet.content.text)}</p>
     </div>
     <footer>
-      <p>${(tweet.created_at)}</p>
+      <p>${moment((tweet.created_at)).fromNow()}</p>
       <span class="material-icons"> favorite_border outlined_flag repeat</span>
     </footer>
     </article>`
@@ -49,6 +49,7 @@ const handleFormSubmission = function (event) {
   $.post('/tweets', data)
   .then(function (response) {
     $('form')[0].reset();
+    $('.counter').text(140);
     loadTweets()
   })
 };
