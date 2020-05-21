@@ -1,3 +1,10 @@
+:root {
+  --main-color: #4056A1;
+  --accent-color: #a6cb8b;
+  --tweet-font-color: grey;
+  --alert-color: tomato;
+}
+
 
 .new-tweet {
   display: flex;
@@ -9,38 +16,47 @@
   display: flex;
   font-family: 'Bungee', cursive;
   font-size: 16px;
-  background-color: #4056A1;
+  background-color: var(--main-color);
   color: white;
   border-radius: 200px;
 }
 
-.chCounter {
+.counter {
   display: flex;
   font-family: 'Bungee', cursive; 
   color: grey;
 }
 
-.belowSubmit {
+.below-tweet {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 #tweet-text {
-  border: 0;
-  outline: 0;
   background: transparent;
-  border-bottom: 3px solid grey;
+  border-bottom: 3px solid var(--tweet-font-color);
   width: 800px;
+  flex-wrap: wrap;
 }
 
 .tweetLabel {
   display:flex;
-  color: grey;
+  color: var(--tweet-font-color);
   font-size: 30px;
   font-weight: bold
 }
 
 .turn-red{
-  color: red
+  color: var(--alert-color)
+}
+
+.error-message {
+  display: none;
+  border: 5px solid var(--alert-color);
+  color: var(--alert-color);
+  font-size: 1.5em;
+  align-items: center;
+  font-weight: bolder;
+  text-align: center;
 }

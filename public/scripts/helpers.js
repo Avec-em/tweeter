@@ -5,7 +5,8 @@ const renderTweets = function(tweets) {
     // calls createTweetElement for each tweet
     const currentTweet = createTweetElement(tweet)
     // takes return value and appends it to the tweets container
-    $('.tweet-container').prepend(currentTweet)
+
+    $('.tweet-container').prepend(currentTweet);
   }
 };
 
@@ -20,7 +21,7 @@ const createTweetElement = function(tweet) {
       <p class="user-ID">${(tweet.user.handle)}</p>
     </header>
     <div class="tweet-body">
-      <p>${(tweet.content.text)}</p>
+      <p>${escape(tweet.content.text)}</p>
     </div>
     <footer>
       <p>${(tweet.created_at)}</p>
@@ -35,25 +36,31 @@ const handleFormSubmission = function (event) {
   event.preventDefault();
   let tweetBody =  ($(this).children('textarea').val())
   if (!tweetBody) {
-    alert('What are you humming about?!')
+    $('.error-message').text('This is the opposite of TMI... gimme something!')
+    $('.error-message').slideDown("slow")
     return;
   } else if (tweetBody.length > 140) {
-    alert('You are humming about too much!')
+    $('.error-message').text('TMI - 140 characters max plz!')
+    $('.error-message').slideDown("slow")
     return;
   }
+  $('.error-message').slideUp("slow")
   const data = $(this).serialize();
   $.post('/tweets', data)
   .then(function (response) {
-    console.log('response AFTER POST:>> ', response);
     loadTweets()
   })
 };
 
 const loadTweets = () => $.get('/tweets', JSON)
 .done(function (response) {
+  $('.tweet-container').empty();
   renderTweets(response);
 })
 
-
-
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 //pass it to create tweet & console log data and looks how it is supposed to once it is good to go, then render and prepend.
