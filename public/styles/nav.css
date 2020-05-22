@@ -1,32 +1,49 @@
-html {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-  box-sizing: border-box;
-}
 
 .nav {
   display: flex;
   justify-content: space-between;
   height: 100px;
-  padding: 24px 24px;
+  padding: 24px;
+  position: fixed;
+  top: 0; 
+  width: 100%; 
   align-items: center;
-  background-color: #4056A1;
+  background-color: var(--main-accent-color);
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-  color: white;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
+  color: var(--main-font-color);
+
 }
 
 .logo {
-  font-family:'Bungee', cursive;
+  font-family: var(--main-accent-font);
   text-transform: uppercase;
   font-size: 1.5rem;
 }
 
 .compose {
-  font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.compose span {
+  margin-top: 5px;
+  animation: bounce 5s;
+  animation-iteration-count: 2;
+  color: var(--main-alert-color);
+
+}
+
+@keyframes bounce {
+  25%,
+  50%,
+  75% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-12px);
+  }
 }

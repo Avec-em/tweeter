@@ -3,7 +3,7 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
@@ -16,21 +16,29 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/desktop-view.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/variables.css" type="text/css" />
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav class="nav">
       <span class="logo">tweeter</span>
-      <div class="compose"><b>Write</b> a new tweet</div>
+      <div class="compose">
+        <p><b>Write</b> a new tweet 
+        </p>
+        <span class="material-icons">arrow_drop_down
+        </span>
+      </div>
     </nav>
+    <div id="desktop">
     <header id="profile-header">
-      <div>
-          <img class="profile-avatar" src="/images/profile-hex.png" alt="Profile Avatar"> 
+      <div class="profile-avatar">
+          <img src="/images/profile-hex.png" alt="Profile Avatar"> 
       </div>
       <br>
       <div>
-          <span class="profile-name">Em</span> Pascas
+          <span class="emphasis">Em</span> Pascas
       </div>
     </header>
 
@@ -40,15 +48,16 @@
       <section class="new-tweet">
         <form action="/tweets" method="POST">
           <label class="tweetLabel" for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <textarea name="text" id="tweet-text" wrap="soft"></textarea>
           <div class="below-tweet">
             <button class="submit-tweet" type="submit">Tweet</button>
             <output class="counter" name="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
-      <section class="tweet-container">
-      </section>
+      <div class="tweet-container">
+      </div>
+
 <!-- External JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
@@ -57,5 +66,6 @@
 <script type="text/javascript" src="/scripts/client.js"></script>
 <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
     </main>
+  </div>
   </body>
 </html>

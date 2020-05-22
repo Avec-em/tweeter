@@ -1,56 +1,58 @@
-
 .new-tweet {
   display: flex;
   justify-content: center;
   padding: 10px 10px 40px 10px;
-  word-wrap: break-word;
 }
 
-.submit-tweet {
-  display: flex;
-  font-family: 'Bungee', cursive;
-  font-size: 16px;
-  background-color: #4056A1;
-  color: white;
-  border-radius: 200px;
-}
-
-.counter {
-  display: flex;
-  font-family: 'Bungee', cursive; 
-  color: grey;
-}
-
-.below-tweet {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-#tweet-text {
-  background: transparent;
-  border: none;
-  border-bottom: 3px solid grey;
-  width: 800px;
+.new-tweet form {
+  width: 100%;
+  max-width: 800px;
 }
 
 .tweetLabel {
-  display:flex;
-  color: grey;
+  color: var(--main-tweet-accent-font-color);
   font-size: 30px;
   font-weight: bold
 }
 
+#tweet-text {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid var(--main-tweet-accent-font-color);
+
+}
+
+.below-tweet {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.counter {
+  display: flex;
+  font-family: var(--main-accent-font);
+  color: var(--main-tweet-accent-font-color);
+}
+
+.submit-tweet {
+  font-family: var(--main-accent-font);
+  font-size: 16px;
+  background-color: var(--main-accent-color);
+  color: var(--main-font-color);
+  border-radius: 200px;
+}
+
+
 .turn-red{
-  color:  tomato;
+  color:  var(--main-alert-color);
 }
 
 .error-message {
   display: none;
-  border: 5px solid  tomato;
-  color:  tomato;
-  font-size: 1.5em;
   align-items: center;
   font-weight: bolder;
   text-align: center;
+  border: 5px solid  var(--main-alert-color);
+  color:  var(--main-alert-color);
 }

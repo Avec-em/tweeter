@@ -3,7 +3,7 @@ const renderTweets = function(tweets) {
   // loops through tweets
   for (const tweet of tweets) {
     // calls createTweetElement for each tweet
-    const currentTweet = createTweetElement(tweet)
+    const currentTweet = createTweetElement(tweet);
     // takes return value and appends it to the tweets container
 
     $('.tweet-container').prepend(currentTweet);
@@ -23,7 +23,7 @@ const createTweetElement = function(tweet) {
     <div class="tweet-body">
       <p>${escape(tweet.content.text)}</p>
     </div>
-    <footer>
+    <footer>  
       <p>${moment((tweet.created_at)).fromNow()}</p>
       <span class="material-icons"> favorite_border outlined_flag repeat</span>
     </footer>
@@ -50,7 +50,7 @@ const handleFormSubmission = function (event) {
   .then(function (response) {
     $('form')[0].reset();
     $('.counter').text(140);
-    loadTweets()
+    loadTweets();
   })
 };
 

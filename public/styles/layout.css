@@ -5,40 +5,21 @@
  */
  html, body {
   box-sizing: border-box;
+  background-color: var(--main-body-color);
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  background-color: #f4f1ec;
+  color: var(--main-font-color);
+
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
+  margin: 0
 }
-
-/*
- * Global layout stuff
-*/
 
 .container {
-  margin: 5%; 
+  margin: 5% 0 5% 5%; 
   width: 90vw;
-  color: black;
-  background-color: #f4f1ec;
+  color: var(--main-body-font-color);
 }
 
-.flex-col {
-  display: flex;
-  flex-direction: column;
-}
-
-
-/*  
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
-
-
-  /*
-  font-family: 'Bungee', cursive;
-  font-family: 'Source Sans Pro', sans-serif;
-  */
