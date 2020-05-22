@@ -12,7 +12,8 @@ const renderTweets = function(tweets) {
 
 //Function to create the Element that hosts the tweet, and to apply
 const createTweetElement = function(tweet) {
-  let $tweet =         
+  let $tweet =
+  // creates tweet HTML with input from client
   `<article class="tweet">
     <header>
       <div>
@@ -33,21 +34,28 @@ const createTweetElement = function(tweet) {
 
 
 const handleFormSubmission = function (event) {
+  // stops tweet from posting after submission
   event.preventDefault();
+  //checks if tweet meets requirments re: length and input
   let tweetBody =  ($(this).children('textarea').val())
   if (!tweetBody) {
+    //error for nothing input into textarea
     $('.error-message').text('This is the opposite of TMI... gimme something!')
     $('.error-message').slideDown("slow")
     return;
   } else if (tweetBody.length > 140) {
+    //error for too much text in text area
     $('.error-message').text('TMI - 140 characters max plz!')
     $('.error-message').slideDown("slow")
     return;
   }
+  //if all goes well, no error message
   $('.error-message').slideUp("slow")
   const data = $(this).serialize();
+  //post tweet to top of feed
   $.post('/tweets', data)
   .then(function (response) {
+    //clear form and reset counter
     $('form')[0].reset();
     $('.counter').text(140);
     loadTweets();
@@ -61,8 +69,8 @@ const loadTweets = () => $.get('/tweets', JSON)
 })
 
 const escape =  function(str) {
+  //ensure HTML will not be read after submission
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
-//pass it to create tweet & console log data and looks how it is supposed to once it is good to go, then render and prepend.

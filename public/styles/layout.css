@@ -1,8 +1,5 @@
-/*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
+/* Main body and global stylings */
+
  html, body {
   box-sizing: border-box;
   background-color: var(--main-body-color);
